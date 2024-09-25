@@ -9,6 +9,7 @@ import { UserService } from './modules/user/user.service';
 import { UserModule } from './modules/user/user.module';
 import { ChatModule } from './modules/chat/chat.module';
 import { ConfigModule } from '@nestjs/config';
+import { AuthController } from './modules/user/auth.controller';
 
 @Module({
   imports: [
@@ -17,11 +18,11 @@ import { ConfigModule } from '@nestjs/config';
       isGlobal: true,
     }),
     MongooseModule.forRoot(process.env.DB_URL),
-    // MongooseModule.forRoot('mongodb://localhost:27017/chat'), // Correct MongoDB connection
+    // MongooseModule.forRoot('mongodb://localhost:27017/chat'),
     UserModule,
     ChatModule,
   ],
-  controllers: [AppController, UserController, ChatController],
-  providers: [AppService, UserService, ChatService],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
