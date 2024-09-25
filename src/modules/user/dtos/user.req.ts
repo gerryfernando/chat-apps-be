@@ -1,4 +1,4 @@
-export class LoginRequest {
-  username: string;
-  password: string;
+export class CreateUserDto {
+  readonly username: string;
+  readonly password: string;
 }
