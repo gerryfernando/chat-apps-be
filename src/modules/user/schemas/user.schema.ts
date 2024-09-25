@@ -1,9 +1,13 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Document } from 'mongoose';
 
 @Schema({ timestamps: true })
-export class User {
-  @Prop()
+export class User extends Document {
+  @Prop({ unique: [true, 'Duplicate Username'] })
   username: string;
+
+  @Prop()
+  email: string;
 
   @Prop()
   password: string;
