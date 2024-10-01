@@ -8,9 +8,6 @@ export class ChatRoom extends Document {
   @Prop({ type: Types.ObjectId, ref: 'User' })
   user: [User];
 
-  @Prop({ type: Types.ObjectId, ref: 'Chat' })
-  message: Chat;
-
   @Prop({ default: Date.now })
   createdAt: Date;
 
